@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cigmkodtk40ka"]
+
+[ext_resource type="Texture2D" uid="uid://ba2oh1ai7kv14" path="res://Images/icon.svg" id="1_ut65o"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_663r2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pi1ve"]
+size = Vector2(128, 128)
+
+[node name="Platform" type="Node2D"]
+
+[node name="Texture" type="Sprite2D" parent="."]
+texture = ExtResource("1_ut65o")
+
+[node name="PhysicsObject" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_663r2")
+
+[node name="Hitbox" type="CollisionShape2D" parent="PhysicsObject"]
+shape = SubResource("RectangleShape2D_pi1ve")
