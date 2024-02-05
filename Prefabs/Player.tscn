@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bmkgbrswd37va"]
 
-[ext_resource type="Texture2D" uid="uid://b1ise0tgkj7b7" path="res://Images/player-faceright.png" id="1_arar6"]
+[ext_resource type="Texture2D" uid="uid://d10gaeg6ckyhp" path="res://Images/player/front.png" id="1_fabpd"]
 
 [sub_resource type="GDScript" id="GDScript_jhnul"]
 script/source = "extends CharacterBody2D
@@ -12,6 +12,9 @@ const JUMP_VELOCITY = -500.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting(\"physics/2d/default_gravity\")
 
+@onready var texture = $Texture
+var front_sprite = load(\"res://Images/player/front.png\")
+var side_sprite = load(\"res://Images/player/side.png\")
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -30,6 +33,17 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
+	if velocity.x == 0:
+		texture.flip_h = false
+		texture.texture = front_sprite
+	else:
+		texture.texture = side_sprite
+		if velocity.x < 0:
+			texture.flip_h = true
+		else:
+			texture.flip_h = false
+	
+
 	move_and_slide()
 "
 
@@ -43,7 +57,7 @@ script = SubResource("GDScript_jhnul")
 [node name="Texture" type="Sprite2D" parent="."]
 texture_filter = 1
 texture_repeat = 1
-texture = ExtResource("1_arar6")
+texture = ExtResource("1_fabpd")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 texture_filter = 1
