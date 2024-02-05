@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwkgh4osvpvp0"]
+
+[ext_resource type="Texture2D" uid="uid://dbkl18jfeo3u2" path="res://Images/double-chomper.png" id="1_c52eq"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="NavigationAgent2D"]
+texture = ExtResource("1_c52eq")

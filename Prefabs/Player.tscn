@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmkgbrswd37va"]
+[gd_scene load_steps=5 format=3 uid="uid://bmkgbrswd37va"]
 
 [ext_resource type="Texture2D" uid="uid://b1ise0tgkj7b7" path="res://Images/player-faceright.png" id="1_arar6"]
+[ext_resource type="Script" path="res://Scripts/pixel_perfect_camera.gd" id="2_huww2"]
 
 [sub_resource type="GDScript" id="GDScript_jhnul"]
 script/source = "extends CharacterBody2D
@@ -47,3 +48,7 @@ texture_filter = 1
 texture_repeat = 1
 scale = Vector2(4, 4)
 texture = ExtResource("1_arar6")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+texture_filter = 1
+script = ExtResource("2_huww2")
