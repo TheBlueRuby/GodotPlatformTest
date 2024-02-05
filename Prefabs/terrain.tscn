@@ -3,6 +3,5 @@
 [ext_resource type="TileSet" uid="uid://dkbgof8u7i5sq" path="res://Tilesets/tileset_main.tres" id="1_gntst"]
 
 [node name="Terrain" type="TileMap"]
-scale = Vector2(2, 2)
 tile_set = ExtResource("1_gntst")
 format = 2

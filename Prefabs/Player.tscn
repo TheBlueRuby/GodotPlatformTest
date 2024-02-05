@@ -1,14 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmkgbrswd37va"]
+[gd_scene load_steps=3 format=3 uid="uid://bmkgbrswd37va"]
 
 [ext_resource type="Texture2D" uid="uid://b1ise0tgkj7b7" path="res://Images/player-faceright.png" id="1_arar6"]
-[ext_resource type="Script" path="res://Scripts/pixel_perfect_camera.gd" id="2_huww2"]
 
 [sub_resource type="GDScript" id="GDScript_jhnul"]
 script/source = "extends CharacterBody2D
 
 
-const SPEED = 500.0
-const JUMP_VELOCITY = -1500.0
+const SPEED = 300.0
+const JUMP_VELOCITY = -500.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting(\"physics/2d/default_gravity\")
@@ -20,7 +19,7 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed(\"jump\") and is_on_floor():
+	if Input.is_action_pressed(\"jump\") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -34,21 +33,21 @@ func _physics_process(delta):
 	move_and_slide()
 "
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kb63c"]
-size = Vector2(64, 128)
-
 [node name="Player" type="CharacterBody2D"]
+texture_filter = 1
+collision_layer = 2
+collision_mask = 3
+safe_margin = 0.001
 script = SubResource("GDScript_jhnul")
-
-[node name="Hitbox" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_kb63c")
 
 [node name="Texture" type="Sprite2D" parent="."]
 texture_filter = 1
 texture_repeat = 1
-scale = Vector2(4, 4)
 texture = ExtResource("1_arar6")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 texture_filter = 1
-script = ExtResource("2_huww2")
+position_smoothing_enabled = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(4, 14, 8, -3, 8, -4, 2, -12, 0, -14, -5, -14, -7, -12, -7, -8, -8, -4, -8, -1, -8, 14)
