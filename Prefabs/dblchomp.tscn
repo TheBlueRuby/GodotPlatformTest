@@ -1,11 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://cwkgh4osvpvp0"]
+[gd_scene load_steps=4 format=3 uid="uid://cwkgh4osvpvp0"]
 
 [ext_resource type="Texture2D" uid="uid://dbkl18jfeo3u2" path="res://Images/double-chomper.png" id="1_c52eq"]
+[ext_resource type="Script" path="res://Prefabs/walking-enemy.gd" id="1_wwst3"]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dk52b"]
+size = Vector2(21, 12)
+
+[node name="DblChomp" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
+wall_min_slide_angle = 0.0
+safe_margin = 0.001
+script = ExtResource("1_wwst3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_c52eq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dk52b")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+target_desired_distance = 20.0
 avoidance_enabled = true
+radius = 24.0
 
-[node name="Sprite2D" type="Sprite2D" parent="NavigationAgent2D"]
-texture = ExtResource("1_c52eq")
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
