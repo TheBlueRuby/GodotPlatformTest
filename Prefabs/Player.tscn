@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmkgbrswd37va"]
+[gd_scene load_steps=4 format=3 uid="uid://bmkgbrswd37va"]
 
 [ext_resource type="Texture2D" uid="uid://d10gaeg6ckyhp" path="res://Images/player/front.png" id="1_fabpd"]
+[ext_resource type="Shape2D" uid="uid://cmi1qpygy3m5r" path="res://Polygons/Collision/player_front.tres" id="2_ol0do"]
 
 [sub_resource type="GDScript" id="GDScript_jhnul"]
 script/source = "extends CharacterBody2D
@@ -12,9 +13,12 @@ const JUMP_VELOCITY = -500.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting(\"physics/2d/default_gravity\")
 
-@onready var texture = $Texture
+@onready var hitbox = $CollisionShape2D
+@onready var texture = hitbox.get_node(\"Texture\")
 var front_sprite = load(\"res://Images/player/front.png\")
 var side_sprite = load(\"res://Images/player/side.png\")
+var front_hitbox = load(\"res://Polygons/Collision/player_front.tres\")
+var side_hitbox = load(\"res://Polygons/Collision/player_side.tres\")
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -34,17 +38,31 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	if velocity.x == 0:
-		texture.flip_h = false
-		texture.texture = front_sprite
+		set_facing(\"front\")
 	else:
-		texture.texture = side_sprite
 		if velocity.x < 0:
-			texture.flip_h = true
+			set_facing(\"left\")
 		else:
-			texture.flip_h = false
+			set_facing(\"right\")
 	
 
 	move_and_slide()
+	
+func set_facing(side):
+	match side:
+		\"front\":
+			hitbox.scale.x =  1
+			texture.texture = front_sprite
+			hitbox.shape = front_hitbox
+		\"left\":
+			hitbox.scale.x =  -1
+			texture.texture = side_sprite
+			hitbox.shape = side_hitbox
+		\"right\":
+			hitbox.scale.x =  1
+			texture.texture = side_sprite
+			hitbox.shape = side_hitbox
+			
 "
 
 [node name="Player" type="CharacterBody2D"]
@@ -54,14 +72,14 @@ collision_mask = 3
 safe_margin = 0.001
 script = SubResource("GDScript_jhnul")
 
-[node name="Texture" type="Sprite2D" parent="."]
-texture_filter = 1
-texture_repeat = 1
-texture = ExtResource("1_fabpd")
-
 [node name="Camera2D" type="Camera2D" parent="."]
 texture_filter = 1
 position_smoothing_enabled = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(4, 14, 8, -3, 8, -4, 2, -12, 0, -14, -5, -14, -7, -12, -7, -8, -8, -4, -8, -1, -8, 14)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = ExtResource("2_ol0do")
+
+[node name="Texture" type="Sprite2D" parent="CollisionShape2D"]
+texture_filter = 1
+texture_repeat = 1
+texture = ExtResource("1_fabpd")
