@@ -1,13 +1,10 @@
-[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://dkbgof8u7i5sq"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://dkbgof8u7i5sq"]
 
 [ext_resource type="Texture2D" uid="uid://vnhs6wao1sws" path="res://Images/cave_moss.png" id="1_uvjg7"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_btya8"]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_vscvd"]
-source_geometry_group_name = &"navigation_polygon_source_group"
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_c3ndh"]
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_q1pnj"]
 vertices = PackedVector2Array(6, 6, -6, 6, -6, -6, 6, -6)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-6, -6, 6, -6, 6, 6, -6, 6)])
@@ -21,7 +18,7 @@ texture_region_size = Vector2i(12, 12)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_vscvd")
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_q1pnj")
 0:1/0 = 0
 0:1/0/terrain_set = 0
 0:1/0/terrain = 0
@@ -31,7 +28,6 @@ texture_region_size = Vector2i(12, 12)
 0:1/0/terrains_peering_bit/right_side = 0
 0:1/0/terrains_peering_bit/bottom_right_corner = 0
 0:1/0/terrains_peering_bit/bottom_side = 0
-0:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_c3ndh")
 1:1/0 = 0
 1:1/0/terrain_set = 0
 1:1/0/terrain = 0
@@ -41,7 +37,6 @@ texture_region_size = Vector2i(12, 12)
 1:1/0/terrains_peering_bit/bottom_side = 0
 1:1/0/terrains_peering_bit/bottom_left_corner = 0
 1:1/0/terrains_peering_bit/left_side = 0
-1:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_c3ndh")
 2:1/0 = 0
 2:1/0/terrain_set = 0
 2:1/0/terrain = 0
@@ -55,7 +50,6 @@ texture_region_size = Vector2i(12, 12)
 2:1/0/terrains_peering_bit/top_left_corner = 0
 2:1/0/terrains_peering_bit/top_side = 0
 2:1/0/terrains_peering_bit/top_right_corner = 0
-2:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_c3ndh")
 4:1/0 = 0
 4:1/0/terrain_set = 0
 4:1/0/terrain = 0
@@ -67,7 +61,6 @@ texture_region_size = Vector2i(12, 12)
 4:1/0/terrains_peering_bit/bottom_side = 0
 4:1/0/terrains_peering_bit/bottom_left_corner = 0
 4:1/0/terrains_peering_bit/left_side = 0
-4:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_c3ndh")
 5:1/0 = 0
 5:1/0/terrain_set = 0
 5:1/0/terrain = 0
@@ -79,7 +72,6 @@ texture_region_size = Vector2i(12, 12)
 5:1/0/terrains_peering_bit/top_left_corner = 0
 5:1/0/terrains_peering_bit/top_side = 0
 5:1/0/terrains_peering_bit/top_right_corner = 0
-5:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_c3ndh")
 0:2/0 = 0
 0:2/0/terrain_set = 0
 0:2/0/terrain = 0
@@ -89,7 +81,6 @@ texture_region_size = Vector2i(12, 12)
 0:2/0/terrains_peering_bit/right_side = 0
 0:2/0/terrains_peering_bit/top_side = 0
 0:2/0/terrains_peering_bit/top_right_corner = 0
-0:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_c3ndh")
 1:2/0 = 0
 1:2/0/terrain_set = 0
 1:2/0/terrain = 0
@@ -99,7 +90,6 @@ texture_region_size = Vector2i(12, 12)
 1:2/0/terrains_peering_bit/left_side = 0
 1:2/0/terrains_peering_bit/top_left_corner = 0
 1:2/0/terrains_peering_bit/top_side = 0
-1:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_c3ndh")
 2:2/0 = 0
 2:2/0/terrain_set = 0
 2:2/0/terrain = 0
@@ -113,7 +103,6 @@ texture_region_size = Vector2i(12, 12)
 2:2/0/terrains_peering_bit/left_side = 0
 2:2/0/terrains_peering_bit/top_left_corner = 0
 2:2/0/terrains_peering_bit/top_side = 0
-2:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_c3ndh")
 3:2/0 = 0
 3:2/0/terrain_set = 0
 3:2/0/terrain = 0
@@ -127,7 +116,6 @@ texture_region_size = Vector2i(12, 12)
 3:2/0/terrains_peering_bit/left_side = 0
 3:2/0/terrains_peering_bit/top_side = 0
 3:2/0/terrains_peering_bit/top_right_corner = 0
-3:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_c3ndh")
 4:2/0 = 0
 4:2/0/terrain_set = 0
 4:2/0/terrain = 0
@@ -139,7 +127,6 @@ texture_region_size = Vector2i(12, 12)
 4:2/0/terrains_peering_bit/bottom_side = 0
 4:2/0/terrains_peering_bit/top_side = 0
 4:2/0/terrains_peering_bit/top_right_corner = 0
-4:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_c3ndh")
 5:2/0 = 0
 5:2/0/terrain_set = 0
 5:2/0/terrain = 0
@@ -151,7 +138,6 @@ texture_region_size = Vector2i(12, 12)
 5:2/0/terrains_peering_bit/left_side = 0
 5:2/0/terrains_peering_bit/top_left_corner = 0
 5:2/0/terrains_peering_bit/top_side = 0
-5:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_c3ndh")
 6:1/0 = 0
 6:1/0/terrain_set = 0
 6:1/0/terrain = 0
@@ -166,14 +152,12 @@ texture_region_size = Vector2i(12, 12)
 6:1/0/terrains_peering_bit/top_left_corner = 0
 6:1/0/terrains_peering_bit/top_side = 0
 6:1/0/terrains_peering_bit/top_right_corner = 0
-6:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_c3ndh")
 6:2/0 = 0
 6:2/0/terrain_set = 0
 6:2/0/terrain = 0
 6:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:2/0/physics_layer_0/angular_velocity = 0.0
 6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, -6, 6, -6, 6, 6, -6, 6)
-6:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_c3ndh")
 3:1/0 = 0
 3:1/0/terrain_set = 0
 3:1/0/terrain = 0
@@ -187,7 +171,6 @@ texture_region_size = Vector2i(12, 12)
 3:1/0/terrains_peering_bit/top_left_corner = 0
 3:1/0/terrains_peering_bit/top_side = 0
 3:1/0/terrains_peering_bit/top_right_corner = 0
-3:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_c3ndh")
 
 [resource]
 tile_size = Vector2i(12, 12)
