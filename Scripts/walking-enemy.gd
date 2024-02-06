@@ -2,7 +2,7 @@
 extends CharacterBody2D
 
 @export var speed = 100
-@export var jump_vel = -350.0
+@export var jump_vel = 350.0
 
 @export var player: Node2D
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
