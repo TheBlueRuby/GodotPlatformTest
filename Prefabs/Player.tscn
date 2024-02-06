@@ -70,11 +70,6 @@ collision_mask = 3
 safe_margin = 0.001
 script = SubResource("GDScript_jhnul")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-texture_filter = 1
-drag_horizontal_enabled = true
-editor_draw_drag_margin = true
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = ExtResource("2_ol0do")
 
