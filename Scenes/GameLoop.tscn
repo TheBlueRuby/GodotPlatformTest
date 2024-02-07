@@ -14,10 +14,10 @@ layer_0/tile_data = PackedInt32Array(-327684, 65537, 2, -393220, 327681, 2, -458
 [node name="Player" parent="." instance=ExtResource("1_6ayb8")]
 
 [node name="DblChomp" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_k60ex")]
-position = Vector2(114, 45)
+position = Vector2(109, 51)
 player = NodePath("../Player")
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+[node name="MainCamera" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 texture_filter = 1
 script = ExtResource("4_65o7m")
 target = NodePath("../Player")

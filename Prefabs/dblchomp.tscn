@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dbkl18jfeo3u2" path="res://Images/double-chomper.png" id="1_c52eq"]
 
 [node name="DblChomp" type="CharacterBody2D"]
-collision_layer = 2
-collision_mask = 3
+collision_layer = 4
+collision_mask = 7
 wall_min_slide_angle = 0.0
 safe_margin = 0.001
 script = ExtResource("1_351ig")
@@ -18,6 +18,7 @@ target_desired_distance = 20.0
 path_postprocessing = 1
 avoidance_enabled = true
 radius = 24.0
+debug_enabled = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.05
@@ -25,5 +26,8 @@ autostart = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(4, 6, 12, -1, 7, -6, -4, -6, -10, -1, -2, 6)
+
+[node name="PlayerScanner" type="RayCast2D" parent="."]
+collision_mask = 3
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
