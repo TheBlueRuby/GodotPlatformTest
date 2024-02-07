@@ -8,6 +8,8 @@ extends Camera2D
 @export var speed = 150
 @export var lerp_factor = 5
 
+const zoom_amount = Vector2(0.01, 0.01);
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -27,4 +29,11 @@ func _process(delta):
 		
 	if position != target.position:
 		position = position.lerp(target.position, delta * lerp_factor)
+		
+	if Input.is_action_pressed("zoom_in"):
+		zoom += zoom_amount
+	if Input.is_action_pressed("zoom_out") and (zoom - zoom_amount) > zoom_amount:
+		zoom -= zoom_amount
+	if Input.is_action_pressed("zoom_reset"):
+		zoom = Vector2.ONE
 	
